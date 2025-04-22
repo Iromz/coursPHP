@@ -63,5 +63,3 @@ echo $prenom . ' ' . $nom;
 
 //EX8
 
-fopen(zfuiz.sdcb);
-echo @$none;
