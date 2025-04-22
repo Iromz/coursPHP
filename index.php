@@ -109,3 +109,109 @@ var_dump(true || false || false); // même var que ci-dessus = true
 
 echo 2 + 1 * 3; // 5
 echo (2 + 1) * 3; // 9
+
+// CONDITIONS
+
+// if, elseif, else
+$mood = 'content';
+
+if ($mood === 'content') {
+    echo "tu es $mood", PHP_EOL;
+} elseif ($mood === 'triste') {
+    echo "quel dommage :(", PHP_EOL;
+} else {
+    echo "quel est ton humeur?", PHP_EOL;
+}
+
+
+if ($mood === 'content'):  // même condition mais pas même syntaxe
+    echo "tu es $mood", PHP_EOL;
+elseif ($mood === 'triste'):
+    echo "quel dommage :(", PHP_EOL;
+else:
+    echo "quel est ton humeur?", PHP_EOL;
+endif;
+
+?>
+
+<?php if ($mood === 'content'): ?>
+    <p> tu es <?= $mood ?></p>
+<?php elseif ($mood === 'triste'): ?>
+    <p>quel dommage :(</p>
+<?php else: ?>
+    <p>quel est ton humeur?</p>
+<?php endif; ?>
+
+<?php
+
+// switch
+
+switch ($mood) {
+    case 'content':
+        echo 'toi content !', PHP_EOL;
+        break;
+    case 'triste':
+        echo 'dommage', PHP_EOL;
+        break;
+    default:
+        echo 'ton humeur ?', PHP_EOL;
+        break;
+}
+
+// match --> cas stricts
+
+$userChoice = 'entrée';
+$menu = match ($userChoice) {
+    'plat principal' => 'raviolis',
+    'entrée', 'salade' => 'riz/thon/tomate',
+    default => 'plat non servi',
+};
+
+echo $menu, PHP_EOL;
+
+// match --> cas complexe
+$age = 18;
+$accesAllowed = match (true) {
+    $age >= 18 => true,
+    default => false,
+};
+
+echo $accesAllowed ? 'accès autorisé' : 'accès interdit', PHP_EOL; // ? = si oui ; : = si non
+
+$username;
+$userConnected = $username ?? 'anonyme';
+$userConnected = isset($username) ? $username : 'anonyme';  // même chose que ci-dessus
+echo $userConnected, PHP_EOL;
+
+// BOUCLES
+
+// While, do while
+
+$i = 0;
+
+while ($i <= 10) {
+    echo 'le compteur vaut : ', $i++, PHP_EOL;
+}
+
+// pas de syntaxe alternative !!!
+do {
+    print "irération $i" . PHP_EOL;
+    $i++;
+} while ($i <= 15);
+
+
+// FOR
+
+for ($i = 0; $i <= 10; $i++) {
+    echo 'le compteur vaut : ', $i++, PHP_EOL;
+}
+
+for ($i = 0; $i <= 10; $i++):
+    echo 'le compteur vaut : ', $i++, PHP_EOL;
+endfor;
+
+// FOREACH
+
+foreach (str_split('LUIGI') as $char){
+    echo $char, PHP_EOL;
+}
