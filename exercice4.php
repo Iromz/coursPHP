@@ -73,3 +73,8 @@ if ($temperature > 30) {
 
 //EX8
 
+//EX9
+
+$personne = [$nom, $age, $ville];
+
+var_dump($personne);

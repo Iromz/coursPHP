@@ -212,6 +212,51 @@ endfor;
 
 // FOREACH
 
-foreach (str_split('LUIGI') as $char){
+foreach (str_split('LUIGI') as $char) {
     echo $char, PHP_EOL;
 }
+
+// TABLEAU
+
+$array = [
+    'one' => 'val1',
+    'two' => 'val2',
+    'three' => 'val3',
+];
+
+var_dump($array);
+
+foreach ($array as $key => $value) {
+    echo $key, " => ", $value, PHP_EOL;
+}
+
+// FONCTION
+
+function greet($firstName, $lasteName)
+{
+    echo "bonjour $firstName ", strtoupper($lasteName), ' !', PHP_EOL; // strtoupper = MAJUSCULE
+};
+
+greet('romain', 'raffaitin');
+
+
+$b = 'b';
+
+function test($a)
+{ // si on ajoute & (test (&$a)) la valeur initial de $b va être modifié
+    $a = 'sdqcsdf';
+    return $a;
+};
+
+echo test($b), PHP_EOL; // 'sdqcsdf'
+echo $b, PHP_EOL; // 'b'
+
+function entier($tab)
+{
+    $tab = [45, 29, 36, 59, 59];
+};
+
+$ar = [63.15165, -65.4];
+
+entier($ar);
+var_dump($ar);
