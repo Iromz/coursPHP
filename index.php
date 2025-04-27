@@ -69,14 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php
                     foreach ($_SESSION['contact'] as $list):
                     ?>
-                        <li class="todo-item">
+                        <li class="todo-item <?php echo $list['fav'] ? 'low-opacity' : '' ?>" >
                             <span class="todo-name"><?= $list['name'] ?></span>
                             <span class="todo-name"><?= $list['mail'] ?></span>
                             <a href="/function/fav.php?id=<?= $list['id'] ?>">
-                                <button class="btn btn-primary btn-small"><?= $list['fav'] ? 'Enlever des favoris' : 'Mettre en favoris'; ?></button>
+                                <button class="btn btn-primary btn-small"><?= $list['fav'] ? 'Mettre en favoris' : 'Enlever des favoris'; ?></button>
                             </a>
                             <a href="/function/modif.php?id=<?= $list['id'] ?>">
-                                <button>Modifier</button>
+                                <button class="btn btn-modifier btn-small">Modifier</button>
                             </a>
                             <a href="/function/remove_contact.php?id=<?= $list['id'] ?>">
                                 <button class="btn btn-danger btn-small">Supprimer</button>
